@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './learningroute.css'
 
 class LearningRoute extends Component {
   //need to create a post to server for the submit form

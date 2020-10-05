@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import './dashboardroute.css'
 
 class DashboardRoute extends Component {
   //need to pull info Language, word, correct, and incorrect from server
