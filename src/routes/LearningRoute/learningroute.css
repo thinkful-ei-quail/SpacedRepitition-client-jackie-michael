@@ -1,0 +1,23 @@
+.learning{
+    text-align: center;
+}
+.translateWord{
+    text-align: center;
+}
+.translateWord input{
+    margin: 10px;
+    height:30px;
+    width: 170px;
+}
+.translateWord h2{
+    text-align: center;
+}
+.answerButton{
+    text-align: right;
+}
+.answerButton button{
+    height: 30px;
+    width:140px;
+    background: transparent;
+    border: 1.5px solid #000000;
+}

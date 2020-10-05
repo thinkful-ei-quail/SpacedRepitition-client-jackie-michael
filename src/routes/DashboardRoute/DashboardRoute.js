@@ -7,9 +7,11 @@ class DashboardRoute extends Component {
   
   render() {
     return (
-      <section>
+      <section className="dashboard">
         <h2>Language will go here</h2>
-        <ul>Words to Practice
+        <fieldset className="dashboardFieldset">
+          <legend>Words to Practice</legend>
+        <ul>
           <li>Word 1 : correct / incorrect</li>
           <li>Word 2 : correct / incorrect</li>
           <li>Word 3 : correct / incorrect</li>
@@ -17,7 +19,8 @@ class DashboardRoute extends Component {
           <li>Word 5 : correct / incorrect</li>
           <li>Word 6 : correct / incorrect</li>
         </ul>
-        <Link to='/learn'><button>Start Practicing</button></Link>
+        </fieldset>
+        <section className="startPracticeButton"><Link to='/learn'><button>Start Practicing</button></Link></section>
       </section>
     );
   }

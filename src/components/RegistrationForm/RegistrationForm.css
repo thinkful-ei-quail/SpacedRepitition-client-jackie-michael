@@ -10,6 +10,8 @@
     height:30px;
     width: 70px;
     margin: 5px;
+    background: transparent;
+    border: 1.5px solid #000000;
 }
 fieldset, label{
     display: inline-flex;

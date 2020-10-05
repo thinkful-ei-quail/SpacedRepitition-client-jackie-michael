@@ -10,6 +10,8 @@
 #submit {
   height: 30px;
   width: 70px;
+  background: transparent;
+    border: 1.5px solid #000000;
 }
 
 @media screen and (max-width: 400px) {

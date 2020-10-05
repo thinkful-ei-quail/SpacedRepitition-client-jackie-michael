@@ -7,9 +7,15 @@ header{
 header a{
     text-decoration: none;
 }
-header h1, header span{
-    margin: auto;
+header h1, span{
+    margin: auto 0 auto 0;
 }
 header span a{
     padding: 10px;
+}
+
+header img{
+    height: 100px;
+    width: 100px;
+    margin: 10px;
 }

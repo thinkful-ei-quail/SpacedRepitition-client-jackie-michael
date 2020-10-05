@@ -1,0 +1,25 @@
+.dashboard{
+    text-align: center;
+    justify-content: center;
+}
+.dashboardFieldset{
+text-align: left;
+margin-bottom: 10px;
+}
+.startPracticeButton{
+    height: 30px;
+    width: 140px;
+    margin: auto;
+}
+.startPracticeButton button{
+    background: transparent;
+    border: 1.5px solid #000000;
+}
+.dashboard ul{
+    list-style-type: none;
+    padding:0;
+    word-spacing: 5px;
+}
+.dashboard li{
+    margin: 10px;
+}

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import TokenService from "../../services/token-service";
 import UserContext from "../../contexts/UserContext";
+import rocketman from '../../Images/rocketman.png'
 import "./Header.css";
 
 class Header extends Component {
@@ -35,7 +36,7 @@ class Header extends Component {
   render() {
     return (
       <header>
-        <h1>
+        <img src={rocketman} alt="rocketman"/><h1>
           <Link to="/">Learn-A-Language</Link>
         </h1>
         <span>

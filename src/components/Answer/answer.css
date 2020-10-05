@@ -1,0 +1,16 @@
+.tryAgainButton{
+    height: 30px;
+    width:140px;
+    background: transparent;
+    border: 1.5px solid #000000;
+}
+.answer{
+    text-align: center;
+}
+.answer fieldset{
+    text-align: center;
+}
+.button{
+    text-align: right;
+    margin:15px 0 0 0;
+}
