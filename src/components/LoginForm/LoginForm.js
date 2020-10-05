@@ -44,7 +44,7 @@ class LoginForm extends Component {
   render() {
     const { error } = this.state
     return (
-      <fieldset>
+      <fieldset className="loginFieldset">
       <form
         className='LoginForm'
         onSubmit={this.handleSubmit}
@@ -54,7 +54,7 @@ class LoginForm extends Component {
         </div>
         <div>
           <Label htmlFor='login-username-input'>
-            Username: 
+            Username
           </Label>
           <Input
             ref={this.firstInput}
@@ -65,7 +65,7 @@ class LoginForm extends Component {
         </div>
         <div>
           <Label htmlFor='login-password-input'>
-            Password: 
+            Password 
           </Label>
           <Input
             id='login-password-input'
@@ -74,9 +74,11 @@ class LoginForm extends Component {
             required
           />
         </div>
+        <div className="submitButton">
         <Button type='submit' id='submit'>
           Login
         </Button>
+        </div>
       </form>
       </fieldset>
     )

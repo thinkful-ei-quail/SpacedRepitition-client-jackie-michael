@@ -35,9 +35,10 @@ class Header extends Component {
 
   render() {
     return (
+      <>
       <header>
         <img src={rocketman} alt="rocketman"/><h1>
-          <Link to="/">Learn-A-Language</Link>
+          <Link to="/">Spaced repetition</Link>
         </h1>
         <span>
           {TokenService.hasAuthToken()
@@ -45,6 +46,8 @@ class Header extends Component {
             : this.renderLoginLink()}
         </span>
       </header>
+      {/* <hr/> */}
+      </>
     );
   }
 }

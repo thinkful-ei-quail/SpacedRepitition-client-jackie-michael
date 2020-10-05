@@ -1,5 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&family=Raleway:wght@300&display=swap');
 html, body{
     margin: 0px;
     padding: 0px;
     width: 100%;
+}
+
+h1{
+    font-family: "Rajdhani";
+    font-size: 3em;
+}
+
+h2, h3, p, li, button, a, label{
+    font-family:"Raleway";
+}
+
+@media screen and (max-width:500px) {
+    h1{
+        font-size: 2em;
+    }
 }
