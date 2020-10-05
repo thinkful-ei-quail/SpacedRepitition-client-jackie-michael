@@ -1,0 +1,20 @@
+
+
+#registration-name-input, 
+#registration-username-input,
+#registration-password-input{
+    height:30px;
+    margin:10px;
+}
+#submit{
+    height:30px;
+    width: 70px;
+}
+fieldset, label{
+    display: inline-flex;
+    text-align: justify;
+    border:none;
+}
+input{
+    display:grid;
+}
