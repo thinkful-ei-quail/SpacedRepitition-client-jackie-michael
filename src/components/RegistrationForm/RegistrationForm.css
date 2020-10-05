@@ -9,12 +9,24 @@
 #submit{
     height:30px;
     width: 70px;
+    margin: 5px;
 }
 fieldset, label{
     display: inline-flex;
-    text-align: justify;
-    border:none;
+    text-align: right;
 }
-input{
+/* .registrationForm input{
     display:grid;
+} */
+footer{
+    margin: 10px;
+}
+@media screen and (max-width:400px){
+    fieldset, label{
+        display: inline-flex;
+        text-align: center;
+    }
+    .registrationForm input{
+    display:grid;
+}
 }
