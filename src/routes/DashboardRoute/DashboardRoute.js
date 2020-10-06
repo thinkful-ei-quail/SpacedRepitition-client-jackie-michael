@@ -16,8 +16,7 @@ class DashboardRoute extends Component {
       <ul>
         {words.map((word) => (
           <li key={word.id}>
-            {word.original}: Correct: {word.correct_count} / Incorrect:{" "}
-            {word.incorrect_count}
+            <h4>{word.original}</h4> correct answer count: {word.correct_count} / incorrect answer count: {word.incorrect_count}
           </li>
         ))}
       </ul>
@@ -30,6 +29,13 @@ class DashboardRoute extends Component {
     }
     return <h2>{language.name}</h2>;
   }
+  
+  renderTotal = (language) => {
+    if (!language) {
+      return null;
+    }
+    return <h2>Total correct answers: {language.total_score}</h2>;
+  }
 
   render() {
     const { language, words } = this.context
@@ -37,11 +43,12 @@ class DashboardRoute extends Component {
       <section className="dashboard">
         {this.renderLanguageName(language)}
         <fieldset className="dashboardFieldset">
-          <legend>Words to Practice</legend>
+          <h3>Words to practice</h3>
           {this.renderWordsToPractice(words)}
+          {this.renderTotal(language)}
           <section className="startPracticeButton">
             <Link to="/learn">
-              <button>Start Practicing</button>
+              <button>Start practicing</button>
             </Link>
           </section>
         </fieldset>
