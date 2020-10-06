@@ -7,8 +7,7 @@ import "./dashboardroute.css";
 class DashboardRoute extends Component {
   static contextType = LanguageContext;
 
-  renderWordsToPractice() {
-    const { words } = this.context;
+  renderWordsToPractice = (words) => {
     console.log("Words", words);
     if (!words) {
       return null;
@@ -24,8 +23,7 @@ class DashboardRoute extends Component {
       </ul>
     );
   }
-  renderLanguageName() {
-    const language = this.context.language;
+  renderLanguageName = (language) => {
     console.log("language", language);
     if (!language) {
       return null;
@@ -34,12 +32,13 @@ class DashboardRoute extends Component {
   }
 
   render() {
+    const { language, words } = this.context
     return (
       <section className="dashboard">
-        {this.renderLanguageName()}
+        {this.renderLanguageName(language)}
         <fieldset className="dashboardFieldset">
           <legend>Words to Practice</legend>
-          {this.renderWordsToPractice()}
+          {this.renderWordsToPractice(words)}
           <section className="startPracticeButton">
             <Link to="/learn">
               <button>Start Practicing</button>
