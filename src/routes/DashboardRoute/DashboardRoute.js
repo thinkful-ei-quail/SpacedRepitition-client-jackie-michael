@@ -1,11 +1,17 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import LanguageContext from '../../contexts/LanguageContext'
 import './dashboardroute.css'
 
 class DashboardRoute extends Component {
   //need to pull info Language, word, correct, and incorrect from server
-  
+  static defaultProps = {
+    language:{}
+  }
+  static contextType = LanguageContext
   render() {
+    const { language } = this.context
+    console.log(language)
     return (
       <section className="dashboard">
         <h2>Test language 1</h2>
