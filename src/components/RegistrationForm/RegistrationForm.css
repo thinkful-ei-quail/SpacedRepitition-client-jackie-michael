@@ -1,4 +1,6 @@
-
+.regFormInline{
+    padding-top:20px;
+}
 
 #registration-name-input, 
 #registration-username-input,
@@ -12,6 +14,9 @@
     margin: 5px;
     background: transparent;
     border: 1.5px solid #000000;
+}
+.registrationButton{
+    text-align: right;
 }
 fieldset, label{
     display: inline-flex;

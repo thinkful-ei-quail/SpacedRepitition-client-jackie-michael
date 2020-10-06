@@ -7,12 +7,12 @@ text-align: left;
 margin-bottom: 10px;
 }
 .startPracticeButton{
-    height: 30px;
-    width: 140px;
-    margin: auto;
+    text-align: right;
 }
 .startPracticeButton button{
     background: transparent;
+    height: 30px;
+    width: 120px;
     border: 1.5px solid #000000;
 }
 .dashboard ul{

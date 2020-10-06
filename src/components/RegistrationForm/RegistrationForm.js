@@ -74,9 +74,11 @@ class RegistrationForm extends Component {
               required
             />
           </div>
+          <div className="registrationButton">
             <Button type="submit" id="submit">
               Sign up
             </Button>{" "}
+            </div>
       </fieldset>
           <footer>
             <Link to="/login">Already have an account?</Link>
