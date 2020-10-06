@@ -13,12 +13,12 @@ export class LanguageProvider extends Component {
     language: {},
     words:[]
   };
-  setLanguage = (language) => {
-    this.setState({ language });
-  };
-  setWords = (words) => {
-    this.setState({ words });
-  };
+//   setLanguage = (language) => {
+//     this.setState({ language });
+//   };
+//   setWords = (words) => {
+//     this.setState({ words });
+//   };
   componentDidMount() {
     languageService.getLanguage().then((data) => {
       this.setState({
