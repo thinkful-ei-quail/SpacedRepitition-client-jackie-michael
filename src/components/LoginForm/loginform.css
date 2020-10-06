@@ -2,16 +2,16 @@
   text-align: center;
 }
 
-#login-username-input,
-#login-password-input {
+#login-username-input, #login-password-input {
   height: 30px;
   margin: 10px;
 }
+
 #submit {
   height: 30px;
   width: 70px;
   background: transparent;
-    border: 1.5px solid #000000;
+  border: 1.5px solid #000000;
 }
 
 @media screen and (max-width: 400px) {
