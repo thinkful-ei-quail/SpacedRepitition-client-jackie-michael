@@ -3,15 +3,16 @@ import React, { Component } from "react";
 
 const LanguageContext = React.createContext({
   language: {},
-  words: {},
+  words: [],
 });
 
-export default LanguageContext;
+export default LanguageContext
 
 export class LanguageProvider extends Component {
   state = {
     language: {},
-    words:[]
+    words:[],
+    error: null
   };
 //   setLanguage = (language) => {
 //     this.setState({ language });
@@ -19,25 +20,24 @@ export class LanguageProvider extends Component {
 //   setWords = (words) => {
 //     this.setState({ words });
 //   };
-  componentDidMount() {
-    languageService.getLanguage().then((data) => {
+  async componentDidMount() {
+    try{
+      const data = await languageService.getLanguage()
       this.setState({
         language: data.language,
         words: data.words,
-      });
-    });
-  }
+      })
+    } 
+    catch(err){this.setState({error: err.message})}
+}
 
   render() {
     const value = {
       language: this.state.language,
       words: this.state.words,
-      //   error: this.error,
-      //   setError: this.setError,
-      //   clearError: this.clearError
     };
     return (
-      <LanguageContext.Provider value={value}>
+      <LanguageContext.Provider  value={value}>
         {this.props.children}
       </LanguageContext.Provider>
     );

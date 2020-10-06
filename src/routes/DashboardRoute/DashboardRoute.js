@@ -6,6 +6,23 @@ import "./dashboardroute.css";
 class DashboardRoute extends Component {
   static contextType = LanguageContext;
 
+  // renderWordsToPractice = (words) => {
+  //   return words.map((word, i) => {
+  //     return (
+  //       <li className='word' key={i}>
+  //         <h4>{word.original}</h4>
+  //         <div className='count'>
+  //           <div className='correct'>
+  //             correct answer count: {word.correct_count}
+  //           </div>
+  //           <div className='incorrect'>
+  //             incorrect answer count: {word.incorrect_count}
+  //           </div>
+  //         </div>
+  //       </li>
+  //     )
+  //   })
+  // }
   renderWordsToPractice = (words) => {
     console.log("Words", words);
     if (!words) {
@@ -22,17 +39,12 @@ class DashboardRoute extends Component {
     );
   }
   renderLanguageName = (language) => {
-    console.log("language", language);
-    if (!language) {
-      return null;
-    }
+    if(!language) return null
     return <h2>{language.name}</h2>;
   }
   
   renderTotal = (language) => {
-    if (!language) {
-      return null;
-    }
+    if(!language) return null
     return <h2>Total correct answers: {language.total_score}</h2>;
   }
 
