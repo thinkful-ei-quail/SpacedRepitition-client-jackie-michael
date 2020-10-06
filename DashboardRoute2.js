@@ -1,41 +1,30 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import LanguageContext from '../../contexts/LanguageContext'
-import LanguageService from '../../services/language-api-service'
 import './dashboardroute.css'
 
 class DashboardRoute extends Component {
-  //need to pull info Language, word, correct, and incorrect from server 
+  //need to pull info Language, word, correct, and incorrect from server
   static defaultProps = {
     language:{}
   }
   static contextType = LanguageContext
-
-renderWordsToPractice(){
-  const { language, words } = this.context
-  console.log('Language', language)
-  console.log('Words', words)
-  if (!language || !words) {
-    return null;
-  }
-  return (
-        <ul>
-        {words.map((word) => (
-          <li key={word.id} >
-          {word.translation}: Correct: {word.correct_count} / Incorrect: {word.incorrect_count}
-          </li>
-        ))}
-        </ul>
-  )
-}
-
   render() {
+    const { language, words } = this.context
+    console.log(words)
     return (
       <section className="dashboard">
-        <h2>Test language 1</h2>
+        <h2>{language}</h2>
         <fieldset className="dashboardFieldset">
           <legend>Words to Practice</legend>
-        {this.renderWordsToPractice()}
+        <ul>
+          <li> : correct / incorrect</li>
+          <li>Word 2 : correct / incorrect</li>
+          <li>Word 3 : correct / incorrect</li>
+          <li>Word 4 : correct / incorrect</li>
+          <li>Word 5 : correct / incorrect</li>
+          <li>Word 6 : correct / incorrect</li>
+        </ul>
         <section className="startPracticeButton"><Link to='/learn'><button>Start Practicing</button></Link></section>
         </fieldset>
       </section>

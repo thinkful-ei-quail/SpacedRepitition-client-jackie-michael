@@ -9,14 +9,9 @@ const LanguageContext = React.createContext({
   export default LanguageContext
 
   export class LanguageProvider extends Component {
-    constructor(props) {
-        super(props)
-        const state = { language: {}, error: null }
-        this.state = state;
+    state = {
+        language:{}
     }
-    // setLanguage = language => {
-    //     this.setState({ language })
-    //   }
     // importLanguage = () => {
     //     const language = languageService.getLanguage()
     //     console.log(language)
@@ -24,23 +19,30 @@ const LanguageContext = React.createContext({
     //         language:language
     //     })
     // }
+    setLanguage = language => {
+        this.setState({ language })
+      }
+      setWords = words => {
+          this.setState({ words })
+      }
 componentDidMount(){
     languageService.getLanguage()
-    .then(data => {
+    .then(language => {
         this.setState({
-            language:data.language
-        })
-        console.log(this.state.language)
+        language,
+        words:language.words
     })
+    console.log(language)
+})
 }
 
     render() {
         const value = {
           language: this.state.language,
-          words: this.words,
-          error: this.error,
-          setError: this.setError,
-          clearError: this.clearError
+          words: this.state.words,
+        //   error: this.error,
+        //   setError: this.setError,
+        //   clearError: this.clearError
         }
         console.log(value)
         return (
