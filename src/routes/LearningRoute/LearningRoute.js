@@ -6,26 +6,25 @@ import "./learningroute.css";
 class LearningRoute extends Component {
   //need to create a post to server for the submit form
   //create services for post and get for info???
-  static contextType = LanguageContext;
+  //static contextType = LanguageContext;
   
-  // state = {
-  //   nextWord: {}
-  // }
+  state = {
+    nextWord: {}
+  }
   
-  // async componentDidMount() {
-  //   try {
-  //     const headWord = await languageService.getNextWord()
-  //     this.setState({
-  //       nextWord: headWord
-  //     })
-  //   }
-  //   catch (err) { this.setState({ error: err.message }) }
-  // }
+  async componentDidMount() {
+    try {
+      const headWord = await languageService.getNextWord()
+      this.setState({
+        nextWord: headWord
+      })
+    }
+    catch (err) { this.setState({ error: err.message }) }
+  }
   
   
   render() {
-    const { nextWord } = this.context
-    const { nextWord, totalScore, wordCorrectCount, wordIncorrectCount } = nextWord
+    const { nextWord, totalScore, wordCorrectCount, wordIncorrectCount } = this.state.nextWord
     console.log('Word attr: ', nextWord, totalScore, wordCorrectCount, wordIncorrectCount)
     return (
       <section className="learning">
