@@ -21,10 +21,12 @@ const languageService = {
     const res = await fetch(URL, authBearer)
     return !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
   },
+  
   async getNextWord(){
     const res = await fetch(URL`/head`, authBearer)
     return !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
   },
+  
   async submitGuess(guess){
     const postData = {
       method: 'POST',

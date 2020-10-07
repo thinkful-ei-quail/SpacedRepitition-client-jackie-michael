@@ -10,7 +10,7 @@ class LearningRoute extends Component {
       <section className="learning">
         <h2>Translate the word:</h2>
         <fieldset className="translateWord">
-          <h2>Hallo</h2>
+          <h2>*Hallo*</h2>
           <form>
             <label>What is the translation for this word?</label>
             <section>
