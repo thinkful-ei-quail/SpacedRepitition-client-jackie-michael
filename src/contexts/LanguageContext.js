@@ -23,11 +23,12 @@ export class LanguageProvider extends Component {
   async componentDidMount() {
     try{
       const data = await languageService.getLanguage()
+      const headWord = await languageService.getNextWord()
       this.setState({
         language: data.language,
-        words: data.words,
+        words: data.words,        
       })
-    } 
+    }
     catch(err){this.setState({error: err.message})}
 }
 

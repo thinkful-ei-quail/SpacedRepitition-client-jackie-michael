@@ -25,7 +25,6 @@ class DashboardRoute extends Component {
   // }
   
   renderWordsToPractice = (words) => {
-    console.log("Words", words);
     if (!words) {
       return null;
     }
