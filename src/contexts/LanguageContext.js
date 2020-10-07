@@ -12,6 +12,7 @@ export class LanguageProvider extends Component {
   state = {
     language: {},
     words:[],
+    nextWord: {},
     error: null
   };
 //   setLanguage = (language) => {
@@ -23,11 +24,14 @@ export class LanguageProvider extends Component {
   async componentDidMount() {
     try{
       const data = await languageService.getLanguage()
+      const headWord = await languageService.getNextWord()
       this.setState({
         language: data.language,
         words: data.words,
+        nextWord: headWord
       })
-    } 
+      console.log('Context head word:', headWord);
+    }
     catch(err){this.setState({error: err.message})}
 }
 

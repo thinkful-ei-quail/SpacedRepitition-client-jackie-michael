@@ -1,29 +1,50 @@
 import React, { Component } from "react";
+import LanguageContext from "../../contexts/LanguageContext";
+import languageService from '../../services/language-api-service'
 import "./learningroute.css";
 
 class LearningRoute extends Component {
   //need to create a post to server for the submit form
   //create services for post and get for info???
-
+  static contextType = LanguageContext;
+  
+  // state = {
+  //   nextWord: {}
+  // }
+  
+  // async componentDidMount() {
+  //   try {
+  //     const headWord = await languageService.getNextWord()
+  //     this.setState({
+  //       nextWord: headWord
+  //     })
+  //   }
+  //   catch (err) { this.setState({ error: err.message }) }
+  // }
+  
+  
   render() {
+    const { nextWord } = this.context
+    const { nextWord, totalScore, wordCorrectCount, wordIncorrectCount } = nextWord
+    console.log('Word attr: ', nextWord, totalScore, wordCorrectCount, wordIncorrectCount)
     return (
       <section className="learning">
-        <h2>Translate the word:</h2>
         <fieldset className="translateWord">
-          <h2>Hallo</h2>
+        <h2>Translate the word:</h2>
+        <span>{nextWord}</span>
           <form>
-            <label>What is the translation for this word?</label>
+            <label htmlFor='learn-guess-input'>What's the translation for this word?</label>
             <section>
-              <input></input>
+              <input type='text' id='learn-guess-input' required></input>
             </section>
             
             <div>
-              <p>You have answered this *word* correctly *X* times.</p>
-              <p>You have answered this *word* incorrectly *X* times.</p>
-              <p>Your total score is: *X*.</p>
+              <p>Your total score is: {totalScore}</p>
+              <p>You have answered this word correctly {wordCorrectCount} times.</p>
+              <p>You have answered this word incorrectly {wordIncorrectCount} times.</p>
             </div>
             <div className="answerButton">
-              <button>Submit your answer</button>
+              <button type='submit'>Submit your answer</button>
               </div>
           </form>
           
