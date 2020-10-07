@@ -23,7 +23,6 @@ export class LanguageProvider extends Component {
   async componentDidMount() {
     try{
       const data = await languageService.getLanguage()
-      const headWord = await languageService.getNextWord()
       this.setState({
         language: data.language,
         words: data.words,        
