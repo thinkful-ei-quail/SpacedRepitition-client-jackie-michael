@@ -1,7 +1,5 @@
 import config from "../config";
 import TokenService from "./token-service";
-
-const authBearer = { headers: { authorization: `bearer ${TokenService.getAuthToken()}` } }
 const URL = `${config.API_ENDPOINT}/language`
 
 const languageService = {
@@ -18,15 +16,18 @@ const languageService = {
     // }
 
     async getLanguage() {
+        const authBearer = { headers: { authorization: `bearer ${TokenService.getAuthToken()}` } }
         const res = await fetch(URL, authBearer)
         return !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     },
     async getNextWord() {
+        const authBearer = { headers: { authorization: `bearer ${TokenService.getAuthToken()}` } }
         const res = await fetch(`${URL}/head`, authBearer)
         return !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     },
     
     async submitGuess(guess) {
+        const authBearer = { headers: { authorization: `bearer ${TokenService.getAuthToken()}` } }
         const postData = {
             method: 'POST',
             authBearer,

@@ -6,24 +6,10 @@ import "./dashboardroute.css";
 class DashboardRoute extends Component {
   static contextType = LanguageContext;
 
-  // renderWordsToPractice = (words) => {
-  //   return words.map((word, i) => {
-  //     return (
-  //       <li className='word' key={i}>
-  //         <h4>{word.original}</h4>
-  //         <div className='count'>
-  //           <div className='correct'>
-  //             correct answer count: {word.correct_count}
-  //           </div>
-  //           <div className='incorrect'>
-  //             incorrect answer count: {word.incorrect_count}
-  //           </div>
-  //         </div>
-  //       </li>
-  //     )
-  //   })
-  // }
-  
+componentDidMount() {
+  this.context.getAllThings()
+}
+
   renderWordsToPractice = (words) => {
     if (!words) {
       return null;
