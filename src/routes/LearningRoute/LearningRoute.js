@@ -6,8 +6,7 @@ import "./learningroute.css";
 class LearningRoute extends Component {
   //need to create a post to server for the submit form
   //create services for post and get for info???
-  //static contextType = LanguageContext;
-  
+    
   state = {
     nextWord: {}
   }
@@ -46,7 +45,6 @@ class LearningRoute extends Component {
               <button type='submit'>Submit your answer</button>
               </div>
           </form>
-          
         </fieldset>
       </section>
     );
