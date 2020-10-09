@@ -9,6 +9,12 @@ import Answer from '../../components/Answer/Answer'
 class LearningRoute extends Component {
   //need to create a post to server for the submit form
   //create services for post and get for info???
+  static defaultProps = {
+    location: {},
+    history: {
+      push: () => { },
+    },
+  };
 
   state = {
     nextWord: {},
@@ -17,6 +23,11 @@ class LearningRoute extends Component {
     response: {},
     guess: ''
   }
+
+
+  handleNext = () => {
+    this.props.history.push('/learn');
+  };
 
   async componentDidMount() {
     try {
@@ -27,7 +38,7 @@ class LearningRoute extends Component {
     }
     catch (err) { this.setState({ error: err.message }) }
   }
-  
+
   handleSubmit = (ev) => {
     ev.preventDefault()
     this.setState({
@@ -43,21 +54,25 @@ class LearningRoute extends Component {
       .catch((res) => {
         this.setState({ error: res.error });
       })
-    }
+  }
 
-  
-  renderFeedback(){
+
+  renderFeedback() {
     const { response, guess, nextWord } = this.state;
     if (!response) return null;
     else return (
-      <Answer response={response} guess={guess} nextWord={nextWord}/>
+      <Answer
+        response={response}
+        guess={guess}
+        nextWord={nextWord}
+        handleNext={this.handleNext} />
     )
   }
-  
-  renderDashboard(){
+
+  renderDashboard() {
     const { nextWord, totalScore, wordCorrectCount, wordIncorrectCount } = this.state.nextWord
     console.log(this.state.nextWord);
-    return(
+    return (
       <fieldset className="translateWord">
         <h2>Translate the word:</h2>
         <span className="nextWord">{nextWord}</span>
@@ -85,7 +100,7 @@ class LearningRoute extends Component {
     const { isCorrect } = this.state.response
     return (
       <section className="learning">
-        {this.state.responseReceived ? this.renderFeedback(): this.renderDashboard()}
+        {this.state.responseReceived ? this.renderFeedback() : this.renderDashboard()}
       </section>
     );
   }

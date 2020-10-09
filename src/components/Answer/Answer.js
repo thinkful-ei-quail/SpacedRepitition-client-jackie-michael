@@ -3,18 +3,22 @@ import UserContext from "../../contexts/UserContext";
 import './answer.css'
 
 class Answer extends Component {
+  static defaultProps = {
+    handleNext: () => { },
+  };
 
   renderIncorrect(score, answer, guess, word) {
+ 
     return (
       <fieldset>
         <div>
-          <p>*Good try, but not quite right :\*</p>
-          <p>The correct translation for {word} was {answer} and
-          you chose {guess}!</p>
+          <h2>Good try, but not quite right :(</h2>
+          <div className='DisplayFeedback'><p>The correct translation for {word} was {answer} and
+          you chose {guess}!</p></div>
         </div>
-        <div>You're total score is: {score}</div>
+        <div className='DisplayScore'> <p>Your total score is: {score}</p></div>
         <div className="button">
-          <button className="tryAgainButton">Try another word</button>
+          <button className="tryAgainButton" onClick={this.props.handleNext}>Try another word!</button>
         </div>
       </fieldset>
     )
@@ -24,13 +28,13 @@ class Answer extends Component {
     return (
       <fieldset>
         <div>
-          <p>*You were correct! :D*</p>
-        <p>The correct translation for {word} was {answer} and
-          you chose {guess}!</p>
+          <h2>You were correct! :D</h2>
+        <div className='DisplayFeedback'><p>The correct translation for {word} was {answer} and
+          you chose {guess}!</p></div>
         </div>
-        <p className='DisplayScore'>You're total score is: {score}</p>
+        <div className='DisplayScore p'><p>Your total score is: {score}</p></div>
         <div className="button">
-          <button className="tryAgainButton">Try another word</button>
+          <button className="tryAgainButton" onClick={this.props.handleNext}>Try another word!</button>
         </div>
       </fieldset>
     )
