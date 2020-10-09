@@ -25,15 +25,21 @@ const languageService = {
         const res = await fetch(`${URL}/head`, authBearer)
         return !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     },
-    
+
     async submitGuess(guess) {
-        const authBearer = { headers: { authorization: `bearer ${TokenService.getAuthToken()}` } }
+        console.log('API Guess endpoint:', guess);
+        const authBearer = {
+            headers:
+            {
+                authorization: `bearer ${TokenService.getAuthToken()}`,
+                "Content-Type": "application/json"
+            }
+        }
         const postData = {
             method: 'POST',
-            authBearer,
             body: JSON.stringify(guess)
         }
-        const res = await fetch(URL`/guess`, postData)
+        const res = await fetch(`${URL}/guess`, postData, authBearer)
         return !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     }
 };

@@ -16,7 +16,11 @@ class LearningRoute extends Component {
   handleSubmit = (ev) => {
     ev.preventDefault()
     this.setState({ error: null })
-    const {guess} = ev.target
+    
+    const { guess } = ev.target
+    
+    console.log('Guess Value:', guess.value);
+    
     languageService.submitGuess(guess.value)
     .then(() => {
       text.value =''
@@ -44,7 +48,7 @@ class LearningRoute extends Component {
         <fieldset className="translateWord">
         <h2>Translate the word:</h2>
         <span className="nextWord">{nextWord}</span>
-          <form onSubmit={this.handleSubmit}>
+          <form onSubmit={ev => this.handleSubmit(ev)}>
             <label htmlFor='learn-guess-input'>What's the translation for this word?</label>
             <section>
               <input type='text' id='learn-guess-input' required name="guess"></input>
@@ -56,9 +60,7 @@ class LearningRoute extends Component {
               <p>You have answered this word incorrectly {wordIncorrectCount} times.</p>
             </div>
             <div className="answerButton">
-            <Link to ='/answerFeedback'>
               <button type='submit'>Submit your answer</button>
-              </Link>
               </div>
           </form>
         </fieldset>
