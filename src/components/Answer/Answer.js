@@ -4,31 +4,31 @@ import './answer.css'
 
 class Answer extends Component {
 
-  renderIncorrect() {
-return(
-  <fieldset>
-    <div>
-      <p>*Good try, but not quite right :\*</p>
-      <p>The correct translation for *word* was *this* and
-          you chose *this*!</p>
-    </div>
-    <div>You're total score is: *X*</div>
-    <div className="button">
-      <button className="tryAgainButton">Try another word</button>
-    </div>
-  </fieldset>
-)
+  renderIncorrect(score, answer, guess, word) {
+    return (
+      <fieldset>
+        <div>
+          <p>*Good try, but not quite right :\*</p>
+          <p>The correct translation for {word} was {answer} and
+          you chose {guess}!</p>
+        </div>
+        <div>You're total score is: {score}</div>
+        <div className="button">
+          <button className="tryAgainButton">Try another word</button>
+        </div>
+      </fieldset>
+    )
   }
 
-  renderCorrect() {
+  renderCorrect(score, answer, guess, word) {
     return (
       <fieldset>
         <div>
           <p>*You were correct! :D*</p>
-          <p>The correct translation for *word* was *this* and
-          you chose *this*!</p>
+        <p>The correct translation for {word} was {answer} and
+          you chose {guess}!</p>
         </div>
-        <div>You're total score is: *X*</div>
+        <p className='DisplayScore'>You're total score is: {score}</p>
         <div className="button">
           <button className="tryAgainButton">Try another word</button>
         </div>
@@ -37,19 +37,12 @@ return(
   }
 
   render() {
+    const { isCorrect, wordCorrectCount, wordIncorrectCount, totalScore, answer } = this.props.response
+    const { guess } = this.props
+    const { nextWord } = this.props.nextWord
     return (
       <section className="answer">
-        <fieldset>
-          <div>
-            <p>*You were correct! :D*</p>
-            <p>The correct translation for *word* was *this* and
-          you chose *this*!</p>
-          </div>
-          <div>You're total score is: *X*</div>
-          <div className="button">
-            <button className="tryAgainButton">Try another word</button>
-          </div>
-        </fieldset>
+        {isCorrect ? this.renderCorrect(totalScore, answer, guess, nextWord) : this.renderIncorrect(totalScore, answer, guess, nextWord)}
       </section>
     );
   }
