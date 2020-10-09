@@ -25,8 +25,33 @@ class LearningRoute extends Component {
   }
 
 
-  handleNext = () => {
-    this.props.history.push('/learn');
+  handleNext = async () => {
+
+    if(this.state.response === null){
+      this.context.getAllThings()  
+      const headWord = await languageService.getNextWord()
+      this.setState({
+        responseReceived: false,
+        nextWord: headWord
+      }) 
+      console.log('If Next word:', this.state.nextWord);
+    } else {
+      this.setState({
+      responseReceived: false,
+      nextWord: this.state.response})
+      console.log('Else Response Object:', this.state.response);   
+    }
+
+    // try {
+    //   const headWord = await languageService.getNextWord()
+    //   this.setState({
+    //     nextWord: headWord,
+    //     responseReceived: false
+    //   })
+    //   console.log('Response:', this.state.response);
+    // }
+    // catch (err) { this.setState({ error: err.message }) }
+
   };
 
   async componentDidMount() {
@@ -48,6 +73,7 @@ class LearningRoute extends Component {
     const { guess } = ev.target
     languageService.submitGuess(guess.value)
       .then((res) => {
+        console.log('Handle Submit res:', res);
         text.value = ''
         this.setState({ response: res, guess: guess.value })
       })
@@ -69,9 +95,9 @@ class LearningRoute extends Component {
     )
   }
 
-  renderDashboard() {
+  renderLearning() {
     const { nextWord, totalScore, wordCorrectCount, wordIncorrectCount } = this.state.nextWord
-    console.log(this.state.nextWord);
+    console.log('Learning next word object:', this.state.nextWord);
     return (
       <fieldset className="translateWord">
         <h2>Translate the word:</h2>
@@ -100,7 +126,7 @@ class LearningRoute extends Component {
     const { isCorrect } = this.state.response
     return (
       <section className="learning">
-        {this.state.responseReceived ? this.renderFeedback() : this.renderDashboard()}
+        {this.state.responseReceived ? this.renderFeedback() : this.renderLearning()}
       </section>
     );
   }
