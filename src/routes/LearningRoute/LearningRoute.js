@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import LanguageContext from "../../contexts/LanguageContext";
 import languageService from '../../services/language-api-service'
+import { Link } from "react-router-dom";
 import "./learningroute.css";
 
 class LearningRoute extends Component {
@@ -42,7 +43,9 @@ class LearningRoute extends Component {
               <p>You have answered this word incorrectly {wordIncorrectCount} times.</p>
             </div>
             <div className="answerButton">
+            <Link to ='/answerFeedback'>
               <button type='submit'>Submit your answer</button>
+              </Link>
               </div>
           </form>
         </fieldset>
