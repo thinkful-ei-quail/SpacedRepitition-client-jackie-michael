@@ -22,11 +22,12 @@ export class LanguageProvider extends Component {
 //   };
   async componentDidMount() {
     try{
-      const data = await languageService.getLanguage()
+      let data = await languageService.getLanguage()
       this.setState({
         language: data.language,
         words: data.words,        
       })
+
     }
     catch(err){this.setState({error: err.message})}
 }

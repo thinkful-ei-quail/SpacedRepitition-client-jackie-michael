@@ -21,3 +21,9 @@
     background: transparent;
     border: 1.5px solid #000000;
 }
+.nextWord{
+    font-family:"Raleway";
+    text-shadow: none;
+    font-size: 2em;
+    padding: 0 0 10px 0;
+}

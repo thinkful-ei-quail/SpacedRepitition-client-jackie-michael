@@ -1,3 +1,4 @@
+import { text } from "@fortawesome/fontawesome-svg-core";
 import React, { Component } from "react";
 import LanguageContext from "../../contexts/LanguageContext";
 import languageService from '../../services/language-api-service'
@@ -8,9 +9,21 @@ class LearningRoute extends Component {
   //create services for post and get for info???
     
   state = {
-    nextWord: {}
+    nextWord: {},
+    error: null
   }
-  
+  handleSubmit = (ev) => {
+    ev.preventDefault()
+    this.setState({ error: null })
+    const {guess} = ev.target
+    languageService.submitGuess(guess.value)
+    .then(() => {
+      text.value =''
+    })
+    .catch((res) => {
+      this.setState({ error: res.error });
+    })
+  }
   async componentDidMount() {
     try {
       const headWord = await languageService.getNextWord()
@@ -29,11 +42,11 @@ class LearningRoute extends Component {
       <section className="learning">
         <fieldset className="translateWord">
         <h2>Translate the word:</h2>
-        <span>{nextWord}</span>
-          <form>
+        <span className="nextWord">{nextWord}</span>
+          <form onSubmit={this.handleSubmit}>
             <label htmlFor='learn-guess-input'>What's the translation for this word?</label>
             <section>
-              <input type='text' id='learn-guess-input' required></input>
+              <input type='text' id='learn-guess-input' required name="guess"></input>
             </section>
             
             <div>
