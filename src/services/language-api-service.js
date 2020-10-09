@@ -26,22 +26,35 @@ const languageService = {
         return !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     },
 
-    async submitGuess(guess) {
-        console.log('API Guess endpoint:', guess);
-        const authBearer = {
-            headers:
-            {
-                authorization: `bearer ${TokenService.getAuthToken()}`,
-                "Content-Type": "application/json"
-            }
-        }
-        const postData = {
+    // async submitGuess(guess) {
+    //     const authBearer = {
+    //         headers:
+    //         {
+    //             "Content-Type": "application/json",
+    //             authorization: `bearer ${TokenService.getAuthToken()}`
+    //         }
+    //     }
+    //     const postData = {
+    //         method: 'POST',
+    //         authBearer,
+    //         body: JSON.stringify(guess)
+    //     }
+    //     const res = await fetch(`${URL}/guess`, postData)
+    //     return !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+    // },
+    
+    submitGuess(guess){
+        return fetch(`${URL}/guess`, {
             method: 'POST',
-            body: JSON.stringify(guess)
-        }
-        const res = await fetch(`${URL}/guess`, postData, authBearer)
-        return !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+            headers: {
+                'content-type': 'application/json',
+                authorization: `bearer ${TokenService.getAuthToken()}`,
+            },
+            body: JSON.stringify( {guess: guess} ),
+        }).then((res) => (!res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()));
     }
 };
+
+
 
 export default languageService;
