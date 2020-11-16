@@ -10,19 +10,19 @@ The app has 4 main page views. The components for each page view are found in th
 
 ### Login Page
 From the Landing Page users can view the Login Page. Already registered users can log in here. New users can click the link to create an account. A demo user account is also available to allow new users to try out the app as well.<br>
-<img alt="Login Page" src="src/Images/Screenshots/login.png">
+<img alt="Login Page" src="src/Images/screenshots/login.png">
 
 ### Registration Page
 The registration page is for new users to create an account. If you already have an account, you can click on a link that will redirect you to the login page.<br>
-<img alt="Registration Page" src="src/Images/Screenshots/register.png">
+<img alt="Registration Page" src="src/Images/screenshots/register.png">
 
 ### Dashboard Page
 The dashboard page is where users can view their stats and click "start learning" to start learning their language<br>
-<img alt="Dashboard Page" src="src/Images/Screenshots/dashboard.png">
+<img alt="Dashboard Page" src="src/Images/screenshots/dashboard.png">
 
 ### Learn Page
 The learn page is where users are prompted to translate a word, type it in the submission box and submit their answer. Users will then be told if they got the answer right or wrong and can choose to view another word.
-<img alt="Dashboard Page" src="src/Images/Screenshots/learn.png">
+<img alt="Dashboard Page" src="src/Images/screenshots/learn.png">
 
 
 ## Stack
